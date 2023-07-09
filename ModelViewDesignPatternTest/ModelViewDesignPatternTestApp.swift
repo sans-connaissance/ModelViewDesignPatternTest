@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct ModelViewDesignPatternTestApp: App {
+    
+    @StateObject private var storeModel = StoreModel(webservice: Webservice())
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(storeModel)
         }
     }
 }
