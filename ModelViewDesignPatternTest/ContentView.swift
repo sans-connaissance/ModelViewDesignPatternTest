@@ -10,14 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject private var storeModel: StoreModel
     
-    private func populateProducts() async {
-        do {
-            try await storeModel.populateProducts()
-        } catch {
-            print(error)
-        }
-    }
-    
     var body: some View {
         VStack {
             List(storeModel.products) { product in
@@ -32,5 +24,17 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environmentObject(StoreModel(webservice: Webservice()))
+    }
+}
+
+// Private funcs
+extension ContentView {
+    
+    private func populateProducts() async {
+        do {
+            try await storeModel.populateProducts()
+        } catch {
+            print(error)
+        }
     }
 }
