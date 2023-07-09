@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject private var storeModel: StoreModel
+    @Environment(StoreModel.self) private var storeModel
     
     var body: some View {
         VStack {
@@ -23,7 +23,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(StoreModel(webservice: Webservice()))
+        ContentView().environment(StoreModel(webservice: Webservice()))
     }
 }
 

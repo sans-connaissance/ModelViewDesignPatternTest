@@ -6,12 +6,12 @@
 //
 
 import Foundation
+import Observation
 
-@MainActor
-class StoreModel: ObservableObject {
+@Observable final class StoreModel {
     
     let webservice: Webservice
-    @Published var products: [Product] = []
+    var products: [Product] = []
     
     init(webservice: Webservice) {
         self.webservice = webservice
